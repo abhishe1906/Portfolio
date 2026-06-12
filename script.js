@@ -832,7 +832,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // PLACE YOUR ACCESS KEY HERE:
     // Go to https://web3forms.com to get a free key emailed to you
-    const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE"; 
+    const WEB3FORMS_ACCESS_KEY = "7ab00f64-4c09-4765-a3e2-736c89465d34"; 
 
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
