@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Abhishek Agrawal - AI/ML Engineer & Full-Stack Developer. Featuring interactive playgrounds for sorting visualization, RAG-based systems, and concept drift simulators.">
+    <title>Abhishek Agrawal | AI/ML Engineer & Full-Stack Developer</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Particle Canvas Overlay -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Sticky Navigation Header -->
+    <header class="navbar">
+        <a href="#home" class="logo">
+            A.AGRAWAL <span>_</span>
+        </a>
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About & Skills</a></li>
+                <li><a href="#playgrounds">Interactive Playgrounds</a></li>
+                <li><a href="#projects">All Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <img class="hero-avatar" src="https://avatars.githubusercontent.com/u/103879638?v=4" alt="Abhishek Agrawal Avatar">
+        <div class="hero-badge">⚡ AVAILABLE FOR OPPORTUNITIES</div>
+        <h1>Abhishek Agrawal</h1>
+        <p>AI/ML Engineer & Full-Stack Developer. Building intelligent systems and interactive web experiences at the intersection of Machine Learning, RAG Pipelines, and Software Engineering.</p>
+        <div class="hero-ctas">
+            <a href="#playgrounds" class="btn btn-primary">
+                <i class="fa-solid fa-gamepad"></i> Explore Playgrounds
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+                Get In Touch
+            </a>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/abhishe1906" target="_blank" class="social-icon" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="mailto:abhishekagrawal100000@mail.com" class="social-icon" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About & Skills Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">About & Skills</h2>
+        <p class="section-subtitle">A brief overview of my engineering background, technical expertise, and what drives my work in technology.</p>
+        
+        <div class="about-grid">
+            <div class="about-content glass-panel">
+                <p>Hello! I am Abhishek Agrawal, a developer passionately focused on creating smart applications and solving algorithmic problems. I specialize in designing and deploying systems that combine machine learning models with accessible web architectures.</p>
+                <p>My interest lies in addressing challenges like Concept Drift in fraud detection, implementing semantic search pipelines (RAG systems) using vector indexes, and building interactive software components. I enjoy writing clean, high-performance code across the full stack.</p>
+            </div>
+            
+            <div class="skills-panel glass-panel">
+                <div class="skills-category">
+                    <h3><i class="fa-solid fa-brain"></i> AI & Machine Learning</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">FAISS</span>
+                        <span class="skill-tag">Sentence Transformers</span>
+                        <span class="skill-tag">LLaMA 3 (Groq API)</span>
+                        <span class="skill-tag">Scikit-Learn</span>
+                        <span class="skill-tag">Concept Drift Analysis</span>
+                    </div>
+                </div>
+                
+                <div class="skills-category">
+                    <h3><i class="fa-solid fa-code"></i> Web Development</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">JavaScript (ES6+)</span>
+                        <span class="skill-tag">HTML5 / CSS3</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Responsive UI</span>
+                        <span class="skill-tag">Canvas API</span>
+                        <span class="skill-tag">AJAX / REST APIs</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools & Methods</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">Jupyter Notebooks</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Algorithms & Data Structures</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Playgrounds Section -->
+    <section class="playgrounds" id="playgrounds">
+        <h2 class="section-title">Interactive Playgrounds</h2>
+        <p class="section-subtitle">Experience live, fully functional in-browser versions of the projects stored in my GitHub repositories.</p>
+        
+        <div class="playgrounds-container">
+            <!-- Navigation Tabs -->
+            <div class="playground-tabs">
+                <button class="tab-btn active" data-target="playground-rag">
+                    <i class="fa-solid fa-comments"></i> RAG Chatbot
+                </button>
+                <button class="tab-btn" data-target="playground-drift">
+                    <i class="fa-solid fa-chart-line"></i> Concept Drift Dashboard
+                </button>
+                <button class="tab-btn" data-target="playground-sorting">
+                    <i class="fa-solid fa-chart-simple"></i> Sorting Visualizer
+                </button>
+            </div>
+
+            <!-- Tab Content 1: Sorting Visualizer -->
+            <div class="playground-content glass-panel" id="playground-sorting">
+                <div class="visualizer-ui">
+                    <div class="visualizer-controls">
+                        <div class="controls-group">
+                            <label for="sorting-algorithm">Algorithm:</label>
+                            <select id="sorting-algorithm" class="visualizer-select">
+                                <option value="bubble">Bubble Sort</option>
+                                <option value="selection">Selection Sort</option>
+                                <option value="insertion">Insertion Sort</option>
+                            </select>
+                        </div>
+                        
+                        <div class="controls-group">
+                            <label for="array-size">Size:</label>
+                            <input type="range" id="array-size" min="10" max="60" value="30">
+                        </div>
+
+                        <div class="controls-group">
+                            <label for="sorting-speed">Speed:</label>
+                            <input type="range" id="sorting-speed" min="5" max="300" value="50" style="transform: rotate(180deg);">
+                        </div>
+                        
+                        <div class="controls-group">
+                            <button id="btn-randomize" class="visualizer-btn">
+                                <i class="fa-solid fa-shuffle"></i> Randomize
+                            </button>
+                            <button id="btn-sort" class="visualizer-btn visualizer-btn-primary">
+                                <i class="fa-solid fa-play"></i> Sort!
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="visualizer-canvas-container" id="bars-container">
+                        <!-- Dynamic bars go here -->
+                    </div>
+
+                    <div class="visualizer-stats">
+                        <span>Comparisons: <strong id="stat-comparisons">0</strong></span>
+                        <span>Swaps / Writes: <strong id="stat-swaps">0</strong></span>
+                        <span>State: <strong id="stat-state" style="color: var(--cyan);">Idle</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content 2: RAG Simulator -->
+            <div class="playground-content active glass-panel" id="playground-rag">
+                <div class="rag-layout">
+                    <div class="rag-workspace">
+                        <div class="rag-document-selector">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 10px;">
+                                <label for="rag-document" style="margin-bottom: 0;">RAG Knowledge Base Document:</label>
+                                <a href="https://rag-based-chatmodel-benfumnrc6bezqhqi4a9gu.streamlit.app/" target="_blank" style="font-size: 0.8rem; color: var(--cyan); display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono);">
+                                    <i class="fa-solid fa-up-right-from-square"></i> Live Streamlit App
+                                </a>
+                            </div>
+                            <textarea id="rag-document" class="document-textarea" readonly>Abhishek Agrawal is a skilled AI/ML Engineer and Web Developer. He maintains three main repositories on GitHub:
+1. RAG-based-Chatmodel: Uses FAISS, Sentence Transformers, and LLaMA3 for semantic search.
+2. Fraud-detection-concept-drift: Explores temporal retraining and drift evaluation.
+3. Sorting-Visualizer: Animates sorting algorithms in the browser.
+His skill set includes Python, PyTorch, Javascript, and Streamlit. Contact him via GitHub.</textarea>
+                        </div>
+
+                        <div class="rag-chat">
+                            <div class="chat-history" id="chat-history">
+                                <div class="chat-message bot">
+                                    Hello! Ask me any question about Abhishek's profile or projects, and I will perform semantic retrieval and generate a context-aware answer.
+                                </div>
+                            </div>
+                            <div class="chat-input-area">
+                                <input type="text" id="chat-input" class="chat-input" placeholder="e.g. What repositories does he have?" autocomplete="off">
+                                <button id="btn-chat-send" class="visualizer-btn visualizer-btn-primary">
+                                    <i class="fa-solid fa-paper-plane"></i> Send
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rag-sidebar">
+                        <div class="retrieval-steps">
+                            <div class="step-header"><i class="fa-solid fa-network-wired"></i> Semantic Retrieval Pipeline</div>
+                            
+                            <div class="retrieval-node" id="node-embed">
+                                <strong>1. Embed Question</strong>
+                                <p id="text-embed">Waiting for query...</p>
+                            </div>
+                            
+                            <div class="retrieval-node" id="node-faiss">
+                                <strong>2. Vector Database Search (FAISS)</strong>
+                                <p id="text-faiss">Searching chunks...</p>
+                            </div>
+
+                            <div class="retrieval-node" id="node-context">
+                                <strong>3. Retrieved Context</strong>
+                                <p id="text-context" style="font-style: italic;">No context retrieved yet.</p>
+                                <span class="node-score" id="score-faiss">Similarity: --</span>
+                            </div>
+
+                            <div class="retrieval-node" id="node-llama">
+                                <strong>4. LLM Generation (Groq / LLaMA3)</strong>
+                                <p id="text-llama">Awaiting context...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content 3: Concept Drift Simulator -->
+            <div class="playground-content glass-panel" id="playground-drift">
+                <div class="drift-layout">
+                    <div class="drift-chart-container">
+                        <div class="drift-chart-header">
+                            <h3 style="font-family: var(--font-heading);">Fraud Model Performance Timeline</h3>
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color accuracy"></span>
+                                    <span>Model Accuracy</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color drift"></span>
+                                    <span>Drift Level</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <canvas id="drift-canvas" width="600" height="280"></canvas>
+                    </div>
+
+                    <div class="drift-sidebar">
+                        <div class="metrics-box">
+                            <div class="metric-card">
+                                <div class="metric-label">Current Model Accuracy</div>
+                                <div class="metric-value" id="metric-accuracy">98.2%</div>
+                                <div class="metric-desc">Baseline trained performance</div>
+                            </div>
+                            
+                            <div class="metric-card">
+                                <div class="metric-label">Drift Alert Status</div>
+                                <div class="metric-value" id="metric-drift-status" style="color: var(--success-green);">Stable</div>
+                                <div class="metric-desc" id="metric-drift-desc">Model fits current pattern</div>
+                            </div>
+
+                            <div class="metric-card">
+                                <div class="metric-label">Current Data Window</div>
+                                <div class="metric-value" id="metric-window">Day 1</div>
+                                <div class="metric-desc">Rolling validation size: 10 days</div>
+                            </div>
+                        </div>
+
+                        <div class="drift-actions">
+                            <button id="btn-step-drift" class="drift-btn drift-btn-accent">
+                                <i class="fa-solid fa-forward-step"></i> Age Timeline (Drifts Data)
+                            </button>
+                            <button id="btn-retrain" class="drift-btn" disabled>
+                                <i class="fa-solid fa-arrows-rotate"></i> Trigger Rolling Retrain
+                            </button>
+                            <button id="btn-reset-drift" class="drift-btn">
+                                <i class="fa-solid fa-arrow-rotate-left"></i> Reset Simulation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Repositories Grid Section -->
+    <section class="projects" id="projects">
+        <h2 class="section-title">All GitHub Repositories</h2>
+        <p class="section-subtitle">A direct list of the open-source projects hosted on my GitHub profile, including technical descriptions and tags.</p>
+        
+        <div class="repos-grid">
+            <!-- Card 1: RAG Chatmodel -->
+            <div class="repo-card glass-panel">
+                <div class="repo-header">
+                    <i class="fa-solid fa-comments-dollar repo-icon"></i>
+                    <div class="repo-links">
+                        <a href="https://rag-based-chatmodel-benfumnrc6bezqhqi4a9gu.streamlit.app/" target="_blank" aria-label="Live Streamlit App" title="Live Streamlit App">
+                            <i class="fa-solid fa-up-right-from-square"></i>
+                        </a>
+                        <a href="https://github.com/abhishe1906/RAG-based-Chatmodel" target="_blank" aria-label="View Source">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <h3>RAG-based-Chatmodel</h3>
+                <p>RAG-based Q&A system for academic documents using FAISS, Sentence Transformers, and LLaMA3 (Groq API). Enables semantic search and context-aware answers from textbooks and notes via a Streamlit interface.</p>
+                <div class="repo-meta">
+                    <span class="repo-lang">
+                        <span class="lang-dot python"></span> Python
+                    </span>
+                    <span><i class="fa-regular fa-star"></i> 0</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Fraud Detection -->
+            <div class="repo-card glass-panel">
+                <div class="repo-header">
+                    <i class="fa-solid fa-chart-line-up repo-icon"></i>
+                    <div class="repo-links">
+                        <a href="https://github.com/abhishe1906/Fraud-detection-concept-drift" target="_blank" aria-label="View Source">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <h3>Fraud-detection-concept-drift</h3>
+                <p>Fraud detection under concept drift using temporal evaluation and rolling retraining to address adversarial customer and transaction pattern shifts.</p>
+                <div class="repo-meta">
+                    <span class="repo-lang">
+                        <span class="lang-dot jupyter"></span> Jupyter Notebook
+                    </span>
+                    <span><i class="fa-regular fa-star"></i> 0</span>
+                </div>
+            </div>
+
+            <!-- Card 3: Sorting Visualizer -->
+            <div class="repo-card glass-panel">
+                <div class="repo-header">
+                    <i class="fa-solid fa-chart-bar repo-icon"></i>
+                    <div class="repo-links">
+                        <a href="https://github.com/abhishe1906/Sorting-Visualizer" target="_blank" aria-label="View Source">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <h3>Sorting-Visualizer</h3>
+                <p>An interactive sorting algorithms visualizer written in JavaScript, animating execution patterns of Bubble Sort, Selection Sort, and Insertion Sort.</p>
+                <div class="repo-meta">
+                    <span class="repo-lang">
+                        <span class="lang-dot javascript"></span> JavaScript
+                    </span>
+                    <span><i class="fa-regular fa-star"></i> 0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Have a project in mind, an opportunity to discuss, or just want to say hello? Drop a message!</p>
+        
+        <div class="contact-container">
+            <div class="contact-info glass-panel">
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="contact-item-details">
+                        <h4>Email</h4>
+                        <p>abhishekagrawal100000@mail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="contact-item-details">
+                        <h4>Location</h4>
+                        <p>India</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <div class="contact-item-details">
+                        <h4>GitHub</h4>
+                        <p><a href="https://github.com/abhishe1906" target="_blank">github.com/abhishe1906</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-panel glass-panel">
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" class="form-control" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" class="form-control" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btn-submit">
+                        <i class="fa-solid fa-paper-plane"></i> Send Message
+                    </button>
+                    <div id="form-message" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-logo">Abhishek Agrawal</div>
+        <p>&copy; 2026 Abhishek Agrawal. All rights reserved.</p>
+        <div class="tech-badges">
+            <span>⚡ HTML5</span>
+            <span>⚡ Vanilla CSS</span>
+            <span>⚡ Vanilla JS</span>
+            <span>⚡ Canvas API</span>
+        </div>
+    </footer>
+
+    <!-- Script File -->
+    <script src="script.js"></script>
+</body>
+</html>
