@@ -826,39 +826,96 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================
        7. Contact Form Handling (Web3Forms Real Email Service)
        ========================================== */
-   const form = document.getElementById('form');
-const submitBtn = form.querySelector('button[type="submit"]');
+    const contactForm = document.getElementById('contact-form');
+    const btnSubmit = document.getElementById('btn-submit');
+    const formMessage = document.getElementById('form-message');
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    // PLACE YOUR ACCESS KEY HERE:
+    // Go to https://web3forms.com to get a free key emailed to you
+    const WEB3FORMS_ACCESS_KEY = "7ab00f64-4c09-4765-a3e2-736c89465d34"; 
 
-    const formData = new FormData(form);
-    formData.append("access_key", "7ab00f64-4c09-4765-a3e2-736c89465d34");
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('contact-name').value.trim();
+        const email = document.getElementById('contact-email').value.trim();
+        const message = document.getElementById('contact-message').value.trim();
 
-    const originalText = submitBtn.textContent;
-
-    submitBtn.textContent = "Sending...";
-    submitBtn.disabled = true;
-
-    try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            alert("Success! Your message has been sent.");
-            form.reset();
-        } else {
-            alert("Error: " + data.message);
+        if (!name || !email || !message) {
+            formMessage.innerText = "Please fill in all fields.";
+            formMessage.className = "form-message error";
+            formMessage.style.display = 'block';
+            return;
         }
 
-    } catch (error) {
-        alert("Something went wrong. Please try again.");
-    } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
+        // Show sending state
+        btnSubmit.disabled = true;
+        btnSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+        formMessage.style.display = 'none';
+
+        if (WEB3FORMS_ACCESS_KEY === "YOUR_ACCESS_KEY_HERE") {
+            // Fallback simulated save if no key is entered yet
+            setTimeout(() => {
+                const messages = JSON.parse(localStorage.getItem('messages') || '[]');
+                messages.push({ name, email, message, date: new Date().toISOString() });
+                localStorage.setItem('messages', JSON.stringify(messages));
+
+                formMessage.innerHTML = `<i class="fa-solid fa-circle-info"></i> Form submitted (Simulation Mode). To receive emails, please replace <code>YOUR_ACCESS_KEY_HERE</code> in <code>script.js</code> with your Web3Forms access key.`;
+                formMessage.className = "form-message success";
+                formMessage.style.display = 'block';
+
+                contactForm.reset();
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+            }, 1000);
+            return;
+        }
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    access_key: WEB3FORMS_ACCESS_KEY,
+                    name: name,
+                    email: email,
+                    message: message,
+                    subject: `New Portfolio Message from ${name}`
+                })
+            });
+
+            const result = await response.json();
+            
+            if (response.status === 200 && result.success) {
+                // Success
+                formMessage.innerText = `Thank you, ${name}! Your message has been sent successfully.`;
+                formMessage.className = "form-message success";
+                formMessage.style.display = 'block';
+                contactForm.reset();
+            } else {
+                // Error from API
+                formMessage.innerText = result.message || "Something went wrong. Please try again.";
+                formMessage.className = "form-message error";
+                formMessage.style.display = 'block';
+            }
+        } catch (error) {
+            // Network error
+            formMessage.innerText = "Network error. Please check your internet connection.";
+            formMessage.className = "form-message error";
+            formMessage.style.display = 'block';
+        } finally {
+            btnSubmit.disabled = false;
+            btnSubmit.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+            
+            // Auto-hide message after 8 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 8000);
+        }
+    });
+
 });
+
